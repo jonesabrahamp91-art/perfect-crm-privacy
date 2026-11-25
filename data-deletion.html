@@ -39,7 +39,6 @@
   </nav>
 <main>
 <h1>Perfect CRM Data Deletion Instructions</h1>
-<div class="draft-banner" role="note"><p><strong>Status: DRAFT — For review only; not published</strong></p></div>
 <p><strong>Last updated:</strong> 25 November 2026</p>
 <p>Perfect CRM is a multi-business WhatsApp CRM platform. Each business that uses it has its own workspace. This page explains how to delete information held in Perfect CRM and how to remove Perfect CRM's access to Meta (Facebook, WhatsApp and catalogue) assets. See the Privacy Policy for more detail.</p>
 <p>Perfect CRM is operated by <strong>Jones Abraham P, a sole proprietor</strong>, at 3/160, Soosai Street, Karuthapillaiyoor, Tenkasi – 627418, Tamil Nadu, India.</p>
@@ -64,19 +63,25 @@
 <h3>B. Disconnect your Meta catalogue (self-service)</h3>
 <ul>
 <li>An owner or admin can choose <strong>Disconnect</strong> on the Meta catalogue card.</li>
-<li>This immediately erases the stored catalogue access token.</li>
-<li>Products already synced stay in your workspace until you delete them.</li>
+<li>This immediately erases the stored catalogue access token and the connection's catalogue details, and Perfect CRM stops accessing the catalogue.</li>
+<li>Products already synced stay in your workspace until you delete them (see D) or ask us to delete them (see F).</li>
 </ul>
 <h3>C. Remove Perfect CRM's access in Meta</h3>
 <p>In Meta Business Settings or WhatsApp Manager, remove Perfect CRM from your business portfolio's connected apps or partners, or revoke the system-user or catalogue access you granted.</p>
 <p>After this, Perfect CRM can no longer use the revoked access. Information already stored in Perfect CRM is not deleted automatically.</p>
-<h3>D. Request removal of uploaded product images</h3>
-<p>Perfect CRM does not currently delete product images uploaded to Vercel Blob automatically. This includes images that remain after a product is deleted, an image is replaced, a product is removed from a Meta catalogue, or a catalogue is disconnected. To request removal of an image uploaded through Perfect CRM, email <a href="mailto:support@topinformer.in">support@topinformer.in</a> and identify the business workspace and product image. We will verify the requester's authority before acting. Removing an image from Perfect CRM does not remove Meta's separate copy of a catalogue image.</p>
-<h3>E. Delete your WhatsApp connection, user accounts or whole workspace (by request)</h3>
+<h3>D. Delete catalogue products (self-service)</h3>
 <ul>
-<li>Self-service deletion of a workspace or a WhatsApp connection is not currently available.</li>
+<li>An owner or admin can delete a product under <strong>Commerce → Manage catalogue</strong>. This deletes the product from your Meta catalogue.</li>
+<li>Perfect CRM keeps a hidden record of the deleted product, marked as removed, because past orders may refer to it. To have these records removed as well, see F.</li>
+<li>If the product's image was uploaded through Perfect CRM, the image is deleted from storage at the same time, unless another product in your workspace still uses it.</li>
+</ul>
+<h3>E. Request removal of uploaded product images</h3>
+<p>Images uploaded through Perfect CRM are deleted automatically only when the product is deleted, or its image replaced, through Perfect CRM (see D). They remain in storage when a product is removed directly in Meta, when a catalogue is disconnected, or when an image was uploaded but the product was never saved. To request removal of such an image, email <a href="mailto:support@topinformer.in">support@topinformer.in</a> and identify the business workspace and product image. We will verify the requester's authority before acting. Removing an image from Perfect CRM does not remove Meta's separate copy of a catalogue image.</p>
+<h3>F. Delete your WhatsApp connection, product records, user accounts or whole workspace (by request)</h3>
+<ul>
+<li>Self-service deletion of a workspace, a WhatsApp connection or hidden product records is not currently available.</li>
 <li>The business owner should email <a href="mailto:support@topinformer.in">support@topinformer.in</a> with the subject <strong>"Perfect CRM - Workspace Deletion Request"</strong>.</li>
-<li>State the business name and what you want deleted: the WhatsApp connection and its stored token, specific user accounts, or the entire workspace with its contacts, messages, orders, products and settings.</li>
+<li>State the business name and what you want deleted: the WhatsApp connection and its stored token, product records (including hidden records of deleted products), specific user accounts, or the entire workspace with its contacts, messages, orders, products and settings.</li>
 <li>We will verify that the request comes from the business's owner before acting.</li>
 </ul>
 <h2>3. If you are a business user</h2>
@@ -85,7 +90,7 @@
 <ul>
 <li><strong>Verification:</strong> We may ask for reasonable information to verify your identity and authority. We act on business-level deletions only on the instruction of the business's owner.</li>
 <li><strong>Timing:</strong> We aim to acknowledge privacy and deletion requests within <strong>7 working days</strong> and aim to resolve verified requests within <strong>30 calendar days</strong>. If a request requires more time, we will explain the reason and provide an updated expected timeframe. These are our service targets and do not replace any shorter or different period required by applicable law.</li>
-<li><strong>Backups:</strong> Deleted information is removed from the live database first. Copies may remain in encrypted backups for up to 14 days and in database point-in-time history for up to 6 hours, before being removed automatically.</li>
+<li><strong>Backups:</strong> Deleted information is removed from the live database first. Copies may remain in encrypted backup files for up to 14 days and in database point-in-time history for up to 6 hours, before being removed automatically. A small number of earlier database copies, made before system updates for recovery and testing, are kept with restricted access and deleted when no longer needed.</li>
 <li><strong>What we may keep:</strong> We may retain information where the law requires it or where reasonably necessary for security or to establish or defend legal claims. We will explain if a request cannot be fully completed.</li>
 <li><strong>Meta's copies:</strong> Meta keeps its own copies of WhatsApp messages and catalogue data under its own policies. Requests for information held by Meta must be made to Meta.</li>
 </ul>
@@ -97,7 +102,7 @@
 <p><strong>Postal address:</strong> 3/160, Soosai Street, Karuthapillaiyoor, Tenkasi – 627418, Tamil Nadu, India.</p>
 <p><strong>Response timeframe:</strong> We aim to acknowledge privacy and deletion requests within <strong>7 working days</strong> and aim to resolve verified requests within <strong>30 calendar days</strong>. If a request requires more time, we will explain the reason and provide an updated expected timeframe. These are our service targets and do not replace any shorter or different period required by applicable law.</p>
 <hr>
-<p><strong>Important:</strong> These instructions describe current application capabilities. They do not mean that Perfect CRM currently provides an automated Meta data-deletion callback or self-service workspace deletion. Review the process and legal requirements before publication.</p>
+<p>Perfect CRM does not use an automated Meta data-deletion callback. Deletion requests are handled as described on this page.</p>
   <footer>Perfect CRM · Data Deletion Instructions<br><span class="footer-links"><a href="./">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></span></footer>
 </main>
 </body>

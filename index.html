@@ -39,7 +39,6 @@
   </nav>
 <main>
 <h1>Perfect CRM Privacy Policy</h1>
-<div class="draft-banner" role="note"><p><strong>Status: DRAFT — For review only; not published</strong></p></div>
 <p><strong>Last updated:</strong> 25 November 2026</p>
 <h2>1. Who we are</h2>
 <p>Perfect CRM is a multi-business customer relationship management (CRM) platform, offered as software-as-a-service, for businesses that communicate with their customers on WhatsApp. Each business that uses Perfect CRM gets its own separate workspace for its WhatsApp conversations, contacts, catalogue products and orders.</p>
@@ -55,10 +54,9 @@
 </ul>
 <h2>3. Our role and the role of each business</h2>
 <ul>
-<li><strong>Customer data in a business's workspace:</strong> Each business decides why and how it uses its customers' information in Perfect CRM. The intended arrangement is that the business acts as the Data Fiduciary and we act as its Data Processor, processing information to provide the service.</li>
+<li><strong>Customer data in a business's workspace:</strong> Each business decides why and how it uses its customers' information in Perfect CRM. The business is responsible for that information as its Data Fiduciary, and we process it on the business's behalf, as its Data Processor, to provide the service.</li>
 <li><strong>Business user accounts and platform operation:</strong> We determine how business-user account information and platform security records are used to operate and protect Perfect CRM.</li>
 </ul>
-<p>These legal roles must be reviewed against the actual service arrangements and applicable law before publication.</p>
 <p>If you are a customer of a business that uses Perfect CRM, please contact that business first about your information. You can also contact us using the details in section 13.</p>
 <h2>4. How Perfect CRM connects to Meta</h2>
 <p>Perfect CRM uses Meta's official platforms. A business connects its own Meta assets to its own Perfect CRM workspace. Perfect CRM does not ask for a Facebook password.</p>
@@ -73,10 +71,17 @@
 <li>Send messages that the business's users send through Perfect CRM.</li>
 </ul>
 <h3>Catalogue connection</h3>
-<p>A business owner or admin can connect the Meta product catalogue owned by the business. Perfect CRM checks the business portfolio associated with the connection and accesses the catalogue shared with it.</p>
-<p>Perfect CRM can read catalogue products and product images, sync them into the business workspace and update product information when a business user edits a product through Perfect CRM.</p>
+<p>A business owner or admin selects "Connect Meta catalogue" in Perfect CRM. This opens Meta's Facebook Login for Business window, where the business chooses its business portfolio and the product catalogue it wants to share, and grants Perfect CRM the <code>catalog_management</code> permission for that catalogue.</p>
+<p>Perfect CRM uses this access only for the catalogue the business shared, to:</p>
+<ul>
+<li>Confirm that the access was granted to Perfect CRM, includes catalogue permission, and comes from the business portfolio linked to the workspace.</li>
+<li>List the catalogues the business shared and read the chosen catalogue's ID and name.</li>
+<li>Read the catalogue's products, so the business can see them in Perfect CRM and send them to its customers in WhatsApp product messages.</li>
+<li>Create, update or delete a product in that catalogue when an owner or admin of the business does so in Perfect CRM. Before creating a product, Perfect CRM checks the catalogue for an existing product with the same SKU.</li>
+</ul>
+<p>Perfect CRM reads products when an owner or admin selects "Sync now", and reads a single product again after it is created or changed through Perfect CRM. Perfect CRM does not access catalogues the business did not share, and it will not connect a catalogue that is already connected to another Perfect CRM workspace.</p>
 <h3>Using a catalogue on WhatsApp</h3>
-<p>A business can link its catalogue to its WhatsApp number. This can be done through Perfect CRM or in Meta's WhatsApp Manager, followed by confirmation in Perfect CRM. Confirmation actions are recorded in an audit log.</p>
+<p>A business can link its catalogue to its WhatsApp number. Perfect CRM offers an option that asks Meta to make this link; the business can instead make the link in Meta's WhatsApp Manager and then confirm it in Perfect CRM. Confirmation actions are recorded in an audit log.</p>
 <p>Meta processes information under its own terms and privacy policy: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer">https://www.facebook.com/privacy/policy</a>.</p>
 <p>Perfect CRM receives information made available by Meta for the assets a business has authorised.</p>
 <h2>5. Information we process</h2>
@@ -87,7 +92,7 @@
 <li>Password hashes, not readable passwords.</li>
 <li>Invitation email addresses and roles.</li>
 <li>WhatsApp Business Account IDs, phone number IDs and display numbers.</li>
-<li>Catalogue IDs, catalogue names and business portfolio IDs.</li>
+<li>Catalogue IDs and names, the IDs of the catalogues a business shared, business portfolio IDs, and which user made the connection.</li>
 <li>Connection status and connection dates.</li>
 <li>Meta access tokens, protected as described in section 8.</li>
 </ul>
@@ -100,74 +105,83 @@
 <li>Orders, customer details, delivery addresses, items, amounts, payment status, courier and tracking details, and returns.</li>
 <li>Reminders and service requests recorded by the business.</li>
 </ul>
-<p>Perfect CRM does not currently download or store media files such as photos, audio, video or documents sent in chats. This statement must be reviewed if future releases introduce media handling.</p>
-<h3>C. Product information</h3>
+<p>Perfect CRM does not currently download or store media files such as photos, audio, video or documents sent in chats.</p>
+<h3>C. Catalogue and product information</h3>
+<p>For a connected catalogue, Perfect CRM keeps a copy of the following product information in the business's workspace:</p>
 <ul>
-<li>Product names, descriptions, prices and availability.</li>
-<li>Product URLs, brands and catalogue images.</li>
-<li>Product images uploaded through Perfect CRM.</li>
+<li>Meta product ID and SKU (retailer ID).</li>
+<li>Product name, description, price, currency, availability and condition.</li>
+<li>Product page link, brand, and the link to the product image.</li>
+<li>Meta's review status for the product, when Meta provides it.</li>
+<li>The product's shipping weight, entered in Perfect CRM for courier calculations. It is not sent to Meta.</li>
+<li>When the product was last read from Meta, and whether it has since been removed from the Meta catalogue.</li>
+<li>Product images uploaded through Perfect CRM (see below).</li>
 </ul>
+<p>Product information is business information. A product description or image could contain personal information only if the business puts it there; businesses should not do so.</p>
 <h3>Product images and file storage</h3>
-<p>Product images uploaded through Perfect CRM are stored in Vercel Blob storage in Mumbai, India. Only a business's owners and admins can upload images (JPG, PNG or WebP, up to 4 MB). Images that Perfect CRM reads from a connected Meta catalogue are not copied into this storage; Perfect CRM keeps only Meta's link to them.</p>
+<p>Product images uploaded through Perfect CRM are stored in Vercel Blob storage in Mumbai, India. Only a business's owners and admins can upload images. Images must be JPG or PNG files of at least 500 × 500 pixels and up to 4 MB. Each file is stored under a new, neutral file name; the original file name is not kept. Images that Perfect CRM reads from a connected Meta catalogue are not copied into this storage; Perfect CRM keeps only Meta's link to them.</p>
 <p>Uploaded images are stored with public access so that Meta and WhatsApp can display them. Anyone who has an image's direct link may be able to view it. Upload only product images you are authorised to share publicly, and never confidential, private or sensitive images, or images containing personal information.</p>
-<p>Perfect CRM does not currently delete uploaded images automatically. An image stays in storage after its product is deleted or its image is replaced in Perfect CRM, after the product is removed from the Meta catalogue, and after the catalogue is disconnected. To have uploaded images removed, email <a href="mailto:support@topinformer.in">support@topinformer.in</a>. Meta keeps its own copies of catalogue images under its own policies; removing an image from Perfect CRM does not remove it from Meta.</p>
+<p>When an owner or admin deletes a product, or replaces its image, through Perfect CRM, the uploaded image is deleted from storage, unless another product in the same workspace still uses it. Uploaded images are not deleted automatically in other cases: when a product is removed directly in Meta, when the catalogue is disconnected, or when an image is uploaded but the product is never saved. To have such images removed, email <a href="mailto:support@topinformer.in">support@topinformer.in</a>. Meta keeps its own copies of catalogue images under its own policies; removing an image from Perfect CRM does not remove it from Meta.</p>
 <h3>D. Security and audit information</h3>
 <ul>
 <li>Session identifiers and session timestamps.</li>
 <li>IP addresses and browser user-agent information.</li>
 <li>Sign-in and security events.</li>
-<li>Audit records of sensitive actions, including Meta connections, catalogue changes and catalogue-link confirmations.</li>
+<li>Audit records of sensitive actions, including Meta connections and disconnections, product creation, updates and deletions, and catalogue-link confirmations.</li>
 </ul>
 <p>Audit records identify who performed an action and which business was involved. They do not contain access tokens, PINs or passwords.</p>
 <h3>E. Payments</h3>
-<p>Payment links are present in the application code but are not currently configured in Production. This section should be updated if payment functionality is enabled.</p>
+<p>Perfect CRM does not currently process payments. If payment features are enabled in future, this policy will be updated first.</p>
 <h2>6. Why we process information</h2>
 <p>We process information to:</p>
 <ul>
 <li>Provide the WhatsApp inbox, contacts, orders and catalogue features.</li>
+<li>Show a business's catalogue products in its workspace, include them in WhatsApp product messages the business sends, and turn WhatsApp catalogue orders into orders in the workspace.</li>
+<li>Create, update and delete products in a business's Meta catalogue when the business's owner or admin asks Perfect CRM to do so.</li>
 <li>Connect and maintain each business's authorised Meta assets.</li>
 <li>Keep each business's workspace separate.</li>
 <li>Authenticate users and control access.</li>
 <li>Protect the platform, investigate security issues and maintain audit records.</li>
 <li>Meet legal obligations and respond to lawful requests.</li>
 </ul>
-<p>We do not sell personal information. We do not use customer information for advertising or to train AI models.</p>
+<p>We do not sell personal information or catalogue data. We do not use customer information or catalogue data for advertising or to train AI models, and we do not share one business's catalogue or customer information with another business.</p>
 <h2>7. Who can see information</h2>
 <ul>
 <li><strong>The business's users:</strong> according to their roles in that business's workspace.</li>
 <li><strong>Users of other businesses:</strong> they cannot access another business's workspace.</li>
-<li><strong>Platform administrators:</strong> staff do not have routine access to business workspace data. The support-access process and its approval requirements should be confirmed before this statement is published.</li>
+<li><strong>Platform administrators:</strong> do not have routine access to business workspace data. To view a business's data, for example for support, an administrator must request access and an owner or admin of that business must approve it. Approved access is limited to the requested scope and period, can be revoked, and every access is recorded in an audit log.</li>
 <li><strong>Infrastructure providers:</strong> providers that host or support the service may process information as necessary to provide their services.</li>
+<li><strong>Meta:</strong> receives the product changes a business makes through Perfect CRM, and the messages a business sends, as part of providing its platforms.</li>
 </ul>
-<p>Current infrastructure information:</p>
+<p>Current infrastructure providers:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Provider</th>
 <th>Purpose</th>
-<th>Known location</th>
+<th>Location</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Vercel</td>
 <td>Application hosting</td>
-<td>Configured for Singapore (<code>sin1</code>); request logs also show Mumbai (<code>bom1</code>). Exact wording requires verification.</td>
+<td>Asia-Pacific regions (Singapore and Mumbai, India)</td>
 </tr>
 <tr>
 <td>Vercel Blob</td>
-<td>Product-image storage</td>
-<td>Mumbai, India (<code>bom1</code>); public access</td>
+<td>Storage of product images uploaded through Perfect CRM</td>
+<td>Mumbai, India; public access by link</td>
 </tr>
 <tr>
 <td>Neon</td>
-<td>PostgreSQL database</td>
-<td>AWS Singapore (<code>ap-southeast-1</code>)</td>
+<td>Database (workspace data, including the copy of catalogue products)</td>
+<td>Singapore (AWS <code>ap-southeast-1</code>)</td>
 </tr>
 <tr>
 <td>GitHub</td>
-<td>Encrypted database backups</td>
-<td>Private repository; artifact storage location needs confirmation</td>
+<td>Encrypted database backup files</td>
+<td>Private repository; GitHub may store these files outside India, including in the United States</td>
 </tr>
 <tr>
 <td>Meta</td>
@@ -181,7 +195,7 @@
 <ul>
 <li>Meta access tokens are encrypted before storage using AES-256-GCM authenticated encryption.</li>
 <li>Encryption keys are stored separately from the database.</li>
-<li>Tokens are used on the server for the business that granted access and are not shown in the application.</li>
+<li>Tokens are used on the server only for the business that granted access and are never shown in the application. Only the last four characters of a token are kept unencrypted, to help identify it.</li>
 <li>Passwords are stored as salted one-way scrypt hashes.</li>
 <li>Setup and invitation links are stored as hashes.</li>
 <li>HTTPS is used to protect information in transit.</li>
@@ -189,23 +203,22 @@
 <li>Access to business workspaces is checked against the signed-in user's business membership.</li>
 <li>Encrypted database backups are maintained and test-restored.</li>
 </ul>
-<p>No online service can guarantee absolute security. We will handle personal data breaches and notifications in accordance with applicable law. Exact notification wording and timelines require legal review.</p>
+<p>No online service can guarantee absolute security. We will handle personal data breaches and notifications in accordance with applicable law.</p>
 <h2>9. Where information is stored</h2>
 <p>Information is stored and processed using the infrastructure providers listed in section 7. Current infrastructure includes services in India and Singapore. Providers may also process information in other locations under their own service arrangements.</p>
-<p>The legal wording concerning international transfers of personal data requires review under applicable Indian law before publication.</p>
 <h2>10. How long information is kept</h2>
 <ul>
 <li>Workspace data is retained while the business account is active or until the business deletes the information.</li>
 <li>Perfect CRM does not currently automatically delete conversation data after a fixed period.</li>
 <li>Deleting a contact removes its conversations, messages and orders from the live database. Linked reminders and service requests are retained but become unlinked.</li>
-<li>Disconnecting a catalogue immediately removes its stored catalogue access token. Synced products remain in the workspace until deleted.</li>
-<li>Security and audit records are retained for platform protection. The exact retention period needs to be confirmed.</li>
-<li>Deleted information may remain in encrypted backups for up to 14 days and in database point-in-time history for up to 6 hours.</li>
+<li>The copy of catalogue products is kept while the business's workspace is active. A product deleted through Perfect CRM is removed from the Meta catalogue; its record in Perfect CRM is kept, hidden and marked as removed, because past orders may refer to it. A product removed directly in Meta is hidden and marked as removed in the same way at the next sync. These records are deleted when the business asks us to delete them or to close its workspace.</li>
+<li>Disconnecting a catalogue immediately erases its stored catalogue access token and the connection's catalogue details. Synced products remain in the workspace until deleted.</li>
+<li>Security and audit records are kept to protect the platform and to show who changed what. They are not currently deleted automatically.</li>
+<li>Deleted information may remain in encrypted backup files for up to 14 days and in database point-in-time history for up to 6 hours. A small number of earlier database copies, made before system updates for recovery and testing, are also kept with restricted access and deleted when no longer needed.</li>
 </ul>
-<p>A retention policy for closed workspaces and security records must be finalised before publication.</p>
 <h2>11. Disconnecting and revoking access</h2>
 <h3>Catalogue</h3>
-<p>A business owner or admin can disconnect a Meta catalogue through Perfect CRM. The stored catalogue access token is erased immediately. Products already synced remain in the workspace until deleted.</p>
+<p>A business owner or admin can disconnect a Meta catalogue through Perfect CRM. The stored catalogue access token is erased immediately and Perfect CRM stops accessing the catalogue. Products already synced remain in the workspace until deleted. A business can also remove Perfect CRM's access to its catalogue in Meta Business Settings.</p>
 <h3>WhatsApp</h3>
 <p>Perfect CRM does not currently provide a self-service button to disconnect a WhatsApp account.</p>
 <p>A business can remove Perfect CRM's access through Meta Business Settings or WhatsApp Manager and contact us to request removal of the stored WhatsApp connection and token.</p>
@@ -230,20 +243,17 @@
 <p><strong>Email:</strong> <a href="mailto:support@topinformer.in">support@topinformer.in</a></p>
 <p><strong>Postal address:</strong> 3/160, Soosai Street, Karuthapillaiyoor, Tenkasi – 627418, Tamil Nadu, India.</p>
 <p><strong>Grievance response timeframe:</strong> We aim to acknowledge privacy and deletion requests within <strong>7 working days</strong> and aim to resolve verified requests within <strong>30 calendar days</strong>. If a request requires more time, we will explain the reason and provide an updated expected timeframe. These are our service targets and do not replace any shorter or different period required by applicable law.</p>
-<p>We handle grievances through the contact details above. These service targets are not a substitute for any mandatory timeframe under applicable law.</p>
 <h2>14. Children</h2>
-<p>Perfect CRM is a business-oriented platform and is not directed at children. The application does not currently enforce an age check. The age eligibility policy and wording concerning children's personal data require confirmation and legal review before publication.</p>
+<p>Perfect CRM is intended for businesses and their authorised staff and is not directed at children. Business user accounts are created only for people their business has authorised.</p>
 <h2>15. Cookies</h2>
 <ul>
 <li>Perfect CRM uses an essential HTTP-only session cookie to keep users signed in.</li>
 <li>It does not currently use advertising or analytics cookies.</li>
-<li>When a user opens Meta's "Connect with Facebook" window, Meta's own scripts and cookies apply under Meta's policies.</li>
+<li>When a user opens Meta's "Connect with Facebook" or "Connect Meta catalogue" window, Meta's own scripts and cookies apply under Meta's policies.</li>
 </ul>
 <h2>16. Changes to this policy</h2>
 <p>We may update this policy when our practices or the service change. The "Last updated" date will be revised when a new version is published.</p>
-<p>Material changes will be communicated to business owners through a method to be confirmed before publication.</p>
-<hr>
-<p><strong>Important:</strong> This is a working draft. It must be checked against the live application and reviewed by a qualified Indian legal professional before publication, particularly for DPDP Act compliance, legal roles, grievance handling, international data transfers and breach notifications.</p>
+<p>We will publish changes on this page. For significant changes, we will also inform business owners by email.</p>
   <footer>Perfect CRM · Privacy Policy<br><span class="footer-links"><a href="terms.html">Terms of Service</a> · <a href="data-deletion.html">Data Deletion Instructions</a></span></footer>
 </main>
 </body>
