@@ -107,7 +107,10 @@
 <li>Product URLs, brands and catalogue images.</li>
 <li>Product images uploaded through Perfect CRM.</li>
 </ul>
-<p>Product images are stored in public file storage so Meta and WhatsApp can display them. Anyone with the image link may be able to view the image. Businesses should upload only appropriate product images and must not upload personal information as product images.</p>
+<h3>Product images and file storage</h3>
+<p>Product images uploaded through Perfect CRM are stored in Vercel Blob storage in Mumbai, India. Only a business's owners and admins can upload images (JPG, PNG or WebP, up to 4 MB). Images that Perfect CRM reads from a connected Meta catalogue are not copied into this storage; Perfect CRM keeps only Meta's link to them.</p>
+<p>Uploaded images are stored with public access so that Meta and WhatsApp can display them. Anyone who has an image's direct link may be able to view it. Upload only product images you are authorised to share publicly, and never confidential, private or sensitive images, or images containing personal information.</p>
+<p>Perfect CRM does not currently delete uploaded images automatically. An image stays in storage after its product is deleted or its image is replaced in Perfect CRM, after the product is removed from the Meta catalogue, and after the catalogue is disconnected. To have uploaded images removed, email <a href="mailto:support@topinformer.in">support@topinformer.in</a>. Meta keeps its own copies of catalogue images under its own policies; removing an image from Perfect CRM does not remove it from Meta.</p>
 <h3>D. Security and audit information</h3>
 <ul>
 <li>Session identifiers and session timestamps.</li>
